@@ -1,0 +1,69 @@
+.card {
+  display: flex;
+  flex-flow: column;
+  box-shadow: 0px 8px 2rem rgba(128, 128, 128, 0.1);
+  border: 4px black;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  text-rendering: optimizelegibility;
+  line-height: 1.5;
+  color: rgb(26, 32, 44);
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: rgb(226, 232, 240);
+  padding: 1.5rem;
+  flex: 1;
+  border-radius: 10px;
+  border-width: 1px;
+}
+
+.card:hover {
+  box-shadow: 0px 8px 1rem rgba(128, 128, 128, 0.3);
+}
+
+.card img {
+  width: 680px;
+  height: 680px;
+  object-fit: cover;
+}
+
+.description {
+  flex-flow: column;
+  padding-top: 1rem;
+}
+
+.description h2 {
+  font-weight: semibold;
+  margin-top: 0.5rem;
+  font-size: 2rem;
+}
+
+.tags {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #16161d;
+}
+
+.breed {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: lighter;
+}
+
+.status {
+  background: black;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+}
+
+.story {
+  margin-top: 1rem;
+}
