@@ -2,6 +2,7 @@ import qs from "qs";
 
 import { fetcher } from "./fetcher";
 import { Pet } from "../types/pet";
+import { Breed } from "../types/breed";
 
 interface GetAnimalsQuery {
   type?: string;
@@ -21,4 +22,16 @@ export const getAnimalById = async (id: string) => {
     `https://api.petfinder.com/v2/animals/${id}`
   );
   return data.animal;
+};
+
+interface GetBreedsQuery {
+  type?: string;
+}
+
+export const getBreeds = async (query?: GetBreedsQuery) => {
+  const { type } = query;
+  const data = await fetcher<{ breeds: Breed[] }>(
+    `https://api.petfinder.com/v2/types/${type}/breeds`
+  );
+  return data.breeds;
 };
