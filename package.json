@@ -1,0 +1,25 @@
+{
+  "name": "pets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Muhammad Mustadi",
+  "license": "MIT",
+  "dependencies": {
+    "@zeit/fetch-retry": "^5.0.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.3.4",
+    "qs": "^6.9.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.9.1",
+    "@types/react": "^16.9.32",
+    "typescript": "^3.8.3"
+  }
+}
