@@ -1,9 +1,10 @@
 import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export const Layout = ({ children }) => (
   <>
     <Header />
     <main>{children}</main>
-    <footer>&copy; 2020 mathdroid</footer>
+    <Footer />
   </>
 );
