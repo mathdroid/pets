@@ -3,8 +3,10 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className={styles.error}>
-      <Link href="/">PETS!</Link>
+    <header className={styles.header}>
+      <Link href="/">
+        <h1>PETS!</h1>
+      </Link>
     </header>
   );
 }

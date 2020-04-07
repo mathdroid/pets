@@ -11,6 +11,7 @@
     "qs": "^6.9.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-tag-autocomplete": "^5.12.1",
     "swr": "^0.2.0"
   },
   "scripts": {

@@ -1,7 +1,5 @@
-.error {
-  background-color: black;
+.header {
   font-family: sans-serif;
-  padding: 20px 20px 60px;
+  padding: 20px 0 60px;
   max-width: 680px;
-  color: #ff6699;
 }

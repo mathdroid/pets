@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useSWR from "swr";
 import qs from "qs";
+import ReactTags from "react-tag-autocomplete";
 
 import { Pet } from "../types/pet";
 import { getAnimals, getBreeds } from "../util/api";
@@ -23,6 +24,11 @@ const fetchByBreed = async (breed: string): Promise<Pet[]> => {
   return response.json();
 };
 
+interface TagOption {
+  id: string;
+  name: string;
+}
+
 const IndexPage = ({ initialPets, breeds }: IndexProps) => {
   const [selectedBreeds, setSelectedBreeds] = useState<string[]>([]);
   const [pets, setPets] = useState<Pet[]>(initialPets);
@@ -30,6 +36,27 @@ const IndexPage = ({ initialPets, breeds }: IndexProps) => {
     `${selectedBreeds.join(",")}`,
     fetchByBreed
   );
+
+  const [tags, setTags] = useState<TagOption[]>(
+    selectedBreeds.map((name) => ({
+      id: name,
+      name,
+    }))
+  );
+
+  const handleDelete = (i: number) => {
+    const _tags = tags.slice(0);
+    _tags.splice(i, 1);
+    setTags(_tags);
+
+    setSelectedBreeds(_tags.map((tag) => tag.name));
+  };
+
+  const handleAddition = (tag: TagOption) => {
+    const _tags = [...tags, tag];
+    setTags(_tags);
+    setSelectedBreeds(_tags.map((tag) => tag.name));
+  };
 
   const toggleBreed = (breedName: string) => {
     setSelectedBreeds(
@@ -50,15 +77,17 @@ const IndexPage = ({ initialPets, breeds }: IndexProps) => {
 
   return (
     <Layout>
-      <BreedSelect
-        breeds={breeds}
-        toggleBreed={toggleBreed}
-        selectedBreeds={selectedBreeds}
+      <ReactTags
+        tags={tags}
+        suggestions={breeds.map((breed) => ({
+          id: breed.name,
+          name: breed.name,
+        }))}
+        handleDelete={handleDelete}
+        handleAddition={handleAddition}
+        placeholder="Search by breed (example: Labradoodle)"
       />
       {selectedBreeds.length > 0 && isValidating && <span>Loading...</span>}
-      {selectedBreeds.map((breed) => (
-        <Tag>{breed}</Tag>
-      ))}
       <PetList pets={pets} />
     </Layout>
   );
