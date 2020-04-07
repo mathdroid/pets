@@ -14,7 +14,7 @@ export function PetListing({ pet }: Props) {
       <div className={styles.description}>
         <h2>{pet.name}</h2>
         <span>{`${pet.breeds.primary}${
-          pet.breeds.secondary ? `/${pet.breeds.secondary}` : ""
+          pet.breeds.secondary ? ` - ${pet.breeds.secondary}` : ""
         }`}</span>
       </div>
     </div>
