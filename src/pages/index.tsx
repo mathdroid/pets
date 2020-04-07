@@ -9,6 +9,7 @@ import { PetList } from "../components/pet/PetList";
 import { Breed } from "../types/breed";
 import { fetch } from "../util/fetcher";
 import { BreedSelect } from "../components/pet/BreedSelect";
+import { Tag } from "../components/common/Tag";
 
 interface IndexProps {
   initialPets: Pet[];
@@ -55,6 +56,9 @@ const IndexPage = ({ initialPets, breeds }: IndexProps) => {
         selectedBreeds={selectedBreeds}
       />
       {selectedBreeds.length > 0 && isValidating && <span>Loading...</span>}
+      {selectedBreeds.map((breed) => (
+        <Tag>{breed}</Tag>
+      ))}
       <PetList pets={pets} />
     </Layout>
   );

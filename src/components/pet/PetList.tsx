@@ -10,12 +10,12 @@ interface Props {
 
 export function PetList({ pets }: Props) {
   return (
-    <Stack>
+    <Stack className={styles.stack}>
       {pets.map((pet) => {
         return (
           <li key={pet.id}>
             <Link href={`/pet/[id]`} as={`/pet/${pet.id}`}>
-              <a>
+              <a className={styles.link}>
                 <PetListing pet={pet} />
               </a>
             </Link>
