@@ -12,6 +12,16 @@
 
 - `/pet/[id]` Details page for pet id === `[id]`
 
+### Caveats
+
+- Although this is an SPA, both the routes presented require connection to the server due to demonstrating the Server-side Rendering feature of Next.js through `getServerSideProps()`.
+
+- Pagination is not (yet) implemented.
+
+- Missing images are replaced by placeholder. Ideally this is supplied by design team.
+
+- Besides these two pages, we also created a `/api/getByBreeds` lambda (`./src/pages/api/getByBreeds` in fs) because of security reasons. We don't want to publish either our Key/Secret pair or our Bearer token to the client side, so we query the dogs by breeds in the lambda. If we want to secure the lambda from abuse, we can: 1) rate limit the lambda, 2) use heavy caching, or combination of both and others.
+
 ## Requirements
 
 1. Node LTS
@@ -35,6 +45,12 @@
 1. `yarn build` or `npm run build`
 
 2. `yarn start` or `npm start`
+
+## Test
+
+1. `yarn test` or `npm test`
+
+2. `yarn test:ci` or `npm run test:ci` to make Jest emulate CI behaviors
 
 ## License
 
