@@ -1,0 +1,10 @@
+.card {
+  display: flex;
+  flex-flow: row;
+  border: 4px black;
+}
+
+.description {
+  flex-flow: column;
+  padding-left: 1rem;
+}

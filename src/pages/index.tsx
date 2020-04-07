@@ -25,7 +25,10 @@ const fetchByBreed = async (breed: string): Promise<Pet[]> => {
 const IndexPage = ({ initialPets, breeds }: IndexProps) => {
   const [selectedBreeds, setSelectedBreeds] = useState<string[]>([]);
   const [pets, setPets] = useState<Pet[]>(initialPets);
-  const { data, error } = useSWR(`${selectedBreeds.join(",")}`, fetchByBreed);
+  const { data, error, isValidating } = useSWR(
+    `${selectedBreeds.join(",")}`,
+    fetchByBreed
+  );
 
   const toggleBreed = (breedName: string) => {
     setSelectedBreeds(
@@ -37,7 +40,8 @@ const IndexPage = ({ initialPets, breeds }: IndexProps) => {
 
   useEffect(() => {
     setPets(
-      error || (selectedBreeds.length > 0 && data && data.length > 0)
+      error ||
+        (!isValidating && selectedBreeds.length > 0 && data && data.length > 0)
         ? data
         : initialPets
     );
@@ -50,6 +54,7 @@ const IndexPage = ({ initialPets, breeds }: IndexProps) => {
         toggleBreed={toggleBreed}
         selectedBreeds={selectedBreeds}
       />
+      {selectedBreeds.length > 0 && isValidating && <span>Loading...</span>}
       <PetList pets={pets} />
     </Layout>
   );
