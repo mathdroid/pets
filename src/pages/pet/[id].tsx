@@ -1,12 +1,13 @@
 import { Pet } from "../../types/pet";
 import { getAnimalById } from "../../util/api";
+import { Layout } from "../../components/layout/Layout";
 
 interface IndexProps {
   pet: Pet;
 }
 
 const IndexPage = ({ pet }: IndexProps) => {
-  return <>{JSON.stringify(pet)}</>;
+  return <Layout>{JSON.stringify(pet)}</Layout>;
 };
 
 export async function getServerSideProps(context) {

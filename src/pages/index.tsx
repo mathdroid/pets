@@ -1,7 +1,7 @@
-import Link from "next/link";
-
 import { Pet } from "../types/pet";
 import { getAnimals } from "../util/api";
+import { Layout } from "../components/layout/Layout";
+import { PetList } from "../components/pet/PetList";
 
 interface IndexProps {
   pets: Pet[];
@@ -9,20 +9,14 @@ interface IndexProps {
 
 const IndexPage = ({ pets }: IndexProps) => {
   return (
-    <>
-      {pets.map((pet) => {
-        return (
-          <Link href={`/pet/${pet.id}`}>
-            <a>{pet.name}</a>
-          </Link>
-        );
-      })}
-    </>
+    <Layout>
+      <PetList pets={pets} />
+    </Layout>
   );
 };
 
 export async function getServerSideProps() {
-  const pets = await getAnimals({ type: "dog" });
+  const [pets] = await Promise.all([getAnimals({ type: "dog" })]);
   return { props: { pets } };
 }
 

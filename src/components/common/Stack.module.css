@@ -1,0 +1,7 @@
+.stack {
+  list-style-type: none;
+}
+
+.stack > * + * {
+  margin-top: 1.5rem;
+}
