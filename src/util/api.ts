@@ -10,11 +10,16 @@ interface GetAnimalsQuery {
 }
 
 export const getAnimals = async (query?: GetAnimalsQuery) => {
-  const { type, breed } = query;
-  const data = await fetcher<{ animals: Pet[] }>(
-    `https://api.petfinder.com/v2/animals?${qs.stringify({ type, breed })}`
-  );
-  return data.animals;
+  try {
+    const { type, breed } = query;
+    const data = await fetcher<{ animals: Pet[] }>(
+      `https://api.petfinder.com/v2/animals?${qs.stringify({ type, breed })}`
+    );
+    return data.animals;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 };
 
 export const getAnimalById = async (id: string) => {
@@ -29,9 +34,14 @@ interface GetBreedsQuery {
 }
 
 export const getBreeds = async (query?: GetBreedsQuery) => {
-  const { type } = query;
-  const data = await fetcher<{ breeds: Breed[] }>(
-    `https://api.petfinder.com/v2/types/${type}/breeds`
-  );
-  return data.breeds;
+  try {
+    const { type } = query;
+    const data = await fetcher<{ breeds: Breed[] }>(
+      `https://api.petfinder.com/v2/types/${type}/breeds`
+    );
+    return data.breeds;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 };
