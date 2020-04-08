@@ -8,9 +8,12 @@ interface Props {
 export function PetDetail({ pet }: Props) {
   return (
     <article className={styles.card}>
-      <img
-        src={pet?.photos[0]?.full ?? `http://via.placeholder.com/680x400`}
-      ></img>
+      <div className={styles.wideBox}>
+        <img
+          src={pet?.photos[0]?.full ?? `http://via.placeholder.com/680x400`}
+        />
+      </div>
+
       <div className={styles.description}>
         <span className={styles.status}>{pet.status}</span>
         <span
