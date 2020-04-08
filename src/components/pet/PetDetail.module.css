@@ -42,7 +42,19 @@
   border-radius: 4px;
 }
 
-.description {
+.content {
   flex-flow: column;
   padding-top: 1rem;
+}
+
+.title,
+.description {
+  margin-top: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

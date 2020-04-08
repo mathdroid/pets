@@ -16,16 +16,18 @@ export function PetDetail({ pet }: Props) {
         />
       </div>
 
-      <div className={styles.description}>
-        <Tag>{pet.status}</Tag>
-        <span
-          className={typography.smallCaps}
-        >{`${pet.size} • ${pet.age} • ${pet.gender}`}</span>
-        <h2 className={typography.title}>{pet.name}</h2>
+      <div className={styles.content}>
+        <header className={styles.header}>
+          <span
+            className={typography.smallCaps}
+          >{`${pet.size} • ${pet.age} • ${pet.gender}`}</span>
+          <Tag>{pet.status}</Tag>
+        </header>
+        <h2 className={`${typography.title} ${styles.title}`}>{pet.name}</h2>
         <span className={typography.subtitle}>{`${pet.breeds.primary}${
           pet.breeds.secondary ? ` - ${pet.breeds.secondary}` : ""
         }`}</span>
-        <p className={typography.description}>
+        <p className={`${typography.description} ${styles.description}`}>
           {pet.description} <a href={pet.url}>(read more)</a>
         </p>
       </div>

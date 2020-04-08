@@ -13,7 +13,7 @@ const IndexPage = ({ pet }: IndexProps) => {
   return (
     <>
       <Head>
-        <title>`PETS! - ${pet.name}`</title>
+        <title>PETS! - {pet.name}</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:title" content={`PETS! - ${pet.name}`} />
         <meta property="og:url" content="https://pets.mathdro.id" />
