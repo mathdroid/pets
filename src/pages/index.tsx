@@ -10,6 +10,7 @@ import { PetList } from "../components/pet/PetList";
 import { Breed } from "../types/breed";
 import { fetch } from "../util/fetcher";
 import { LoadingCard } from "../components/pet/LoadingCard";
+import Head from "next/head";
 
 interface IndexProps {
   initialPets: Pet[];
@@ -66,21 +67,45 @@ const IndexPage = ({ initialPets, breeds }: IndexProps) => {
   }, [selectedBreeds, data]);
 
   return (
-    <Layout>
-      <ReactTags
-        tags={tags}
-        suggestions={breeds.map((breed) => ({
-          id: breed.name,
-          name: breed.name,
-        }))}
-        handleDelete={handleDelete}
-        handleAddition={handleAddition}
-        placeholder="Search by breed (example: Labradoodle)"
-        minQueryLength={1}
-      />
-      {selectedBreeds.length > 0 && isValidating && <LoadingCard />}
-      <PetList pets={isValidating ? [] : pets} />
-    </Layout>
+    <>
+      <Head>
+        <title>PETS!</title>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:title" content={`PETS!`} />
+        <meta property="og:url" content="https://pets.mathdro.id" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content={`Find adorable pets like ${initialPets
+            .slice(0, 3)
+            .map((pet) => pet.name)
+            .join(", ")} and more!`}
+        />
+        <meta
+          property="og:image"
+          content={
+            initialPets.find(
+              (pet) => pet.photos && pet.photos[0] && pet.photos[0].full
+            ).photos[0]?.full ?? `http://via.placeholder.com/1200x627`
+          }
+        />
+      </Head>
+      <Layout>
+        <ReactTags
+          tags={tags}
+          suggestions={breeds.map((breed) => ({
+            id: breed.name,
+            name: breed.name,
+          }))}
+          handleDelete={handleDelete}
+          handleAddition={handleAddition}
+          placeholder="Search by breed (example: Labradoodle)"
+          minQueryLength={1}
+        />
+        {selectedBreeds.length > 0 && isValidating && <LoadingCard />}
+        <PetList pets={isValidating ? [] : pets} />
+      </Layout>
+    </>
   );
 };
 
