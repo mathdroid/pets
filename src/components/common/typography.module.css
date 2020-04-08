@@ -1,0 +1,21 @@
+.smallCaps {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #16161d;
+}
+
+.title {
+  font-weight: semibold;
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: lighter;
+}
+
+.description {
+  line-height: 1.5;
+}

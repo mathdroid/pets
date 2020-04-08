@@ -1,4 +1,6 @@
 import styles from "./PetDetail.module.css";
+import { Tag } from "../common/Tag";
+import typography from "../common/typography.module.css";
 import { Pet } from "../../types/pet";
 
 interface Props {
@@ -15,15 +17,15 @@ export function PetDetail({ pet }: Props) {
       </div>
 
       <div className={styles.description}>
-        <span className={styles.status}>{pet.status}</span>
+        <Tag>{pet.status}</Tag>
         <span
-          className={styles.tags}
+          className={typography.smallCaps}
         >{`${pet.size} • ${pet.age} • ${pet.gender}`}</span>
-        <h2>{pet.name}</h2>
-        <span className={styles.breed}>{`${pet.breeds.primary}${
+        <h2 className={typography.title}>{pet.name}</h2>
+        <span className={typography.subtitle}>{`${pet.breeds.primary}${
           pet.breeds.secondary ? ` - ${pet.breeds.secondary}` : ""
         }`}</span>
-        <p className={styles.story}>
+        <p className={typography.description}>
           {pet.description} <a href={pet.url}>(read more)</a>
         </p>
       </div>
