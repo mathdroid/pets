@@ -2,24 +2,18 @@
   display: flex;
   flex-flow: column;
   box-shadow: 0px 8px 2rem rgba(128, 128, 128, 0.1);
-  border: 4px black;
   padding: 1rem;
   background: white;
-  border-radius: 0.5rem;
   transition: all 0.2s ease-in-out;
-
-  -webkit-font-smoothing: antialiased;
-  text-size-adjust: 100%;
-  text-rendering: optimizelegibility;
   line-height: 1.5;
   color: rgb(26, 32, 44);
   box-sizing: border-box;
+  border-radius: 0.5rem;
   border-style: solid;
   border-color: rgb(226, 232, 240);
+  border-width: 1px;
   padding: 1.5rem;
   flex: 1;
-  border-radius: 10px;
-  border-width: 1px;
 }
 
 .card:hover {
@@ -28,7 +22,7 @@
 
 .card img {
   width: 680px;
-  height: 680px;
+  height: 400px;
   object-fit: cover;
 }
 
@@ -57,9 +51,10 @@
 }
 
 .status {
+  font-size: 0.75rem;
   background: black;
   color: white;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   margin-right: 0.5rem;
 }

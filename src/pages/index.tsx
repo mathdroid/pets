@@ -9,6 +9,7 @@ import { Layout } from "../components/layout/Layout";
 import { PetList } from "../components/pet/PetList";
 import { Breed } from "../types/breed";
 import { fetch } from "../util/fetcher";
+import { LoadingCard } from "../components/pet/LoadingCard";
 
 interface IndexProps {
   initialPets: Pet[];
@@ -75,8 +76,9 @@ const IndexPage = ({ initialPets, breeds }: IndexProps) => {
         handleDelete={handleDelete}
         handleAddition={handleAddition}
         placeholder="Search by breed (example: Labradoodle)"
+        minQueryLength={1}
       />
-      {selectedBreeds.length > 0 && isValidating && <span>Loading...</span>}
+      {selectedBreeds.length > 0 && isValidating && <LoadingCard />}
       <PetList pets={isValidating ? [] : pets} />
     </Layout>
   );

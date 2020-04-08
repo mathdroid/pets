@@ -2,11 +2,14 @@
   display: flex;
   flex-flow: row;
   box-shadow: 0px 8px 2rem rgba(128, 128, 128, 0.1);
-  border: 4px black;
   padding: 1rem;
   background: white;
-  border-radius: 0.5rem;
   transition: all 0.2s ease-in-out;
+
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-color: rgb(226, 232, 240);
+  border-width: 1px;
 }
 
 .card:hover {
