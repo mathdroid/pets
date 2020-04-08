@@ -86,7 +86,7 @@ const IndexPage = ({ initialPets, breeds }: IndexProps) => {
           content={
             initialPets.find(
               (pet) => pet.photos && pet.photos[0] && pet.photos[0].full
-            ).photos[0]?.full ?? `http://via.placeholder.com/1200x627`
+            )?.photos[0]?.full ?? `http://via.placeholder.com/1200x627`
           }
         />
       </Head>
